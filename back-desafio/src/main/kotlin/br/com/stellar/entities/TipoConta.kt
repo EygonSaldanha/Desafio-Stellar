@@ -1,4 +1,7 @@
 package br.com.stellar.entities
 
-class TipoConta {
+enum class TipoConta {
+    CORRENTE,
+    POUPANCA,
+    SALARIO
 }

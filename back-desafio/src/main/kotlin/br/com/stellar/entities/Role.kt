@@ -1,4 +1,5 @@
 package br.com.stellar.entities
 
-class Role {
+enum class Role {
+    USER, ADMIN
 }
