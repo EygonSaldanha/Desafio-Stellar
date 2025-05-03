@@ -1,4 +1,6 @@
 package br.com.stellar.form
 
-class UsuarioForm {
-}
+data class UsuarioForm(
+    val email: String,
+    val senha: String
+)
