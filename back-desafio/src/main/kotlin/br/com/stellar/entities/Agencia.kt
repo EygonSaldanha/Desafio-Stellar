@@ -5,7 +5,7 @@ import io.quarkus.hibernate.orm.panache.kotlin.PanacheEntityBase
 import jakarta.persistence.*
 
 @Entity
-@Table(name = "agencia")
+@Table(name = "agency")
 class Agencia(
 
     @Id
@@ -13,15 +13,16 @@ class Agencia(
     @Column(nullable = false, updatable = false)
     var id: Long,
 
-    @Column(nullable = false)
+    @Column(name = "name",nullable = false)
     var nome: String,
 
-    @Column(nullable = false)
+    @Column(name = "is_active",nullable = false)
     var ativo: Boolean,
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "banco_id", nullable = false)
+    @JoinColumn(name = "bank_id", nullable = false)
     var banco: Banco
+
 ) : PanacheEntityBase {
 
     constructor() : this(
