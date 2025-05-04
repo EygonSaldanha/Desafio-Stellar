@@ -1,5 +1,6 @@
 package br.com.stellar.service
 
+import br.com.stellar.entities.Agencia
 import br.com.stellar.entities.Banco
 import br.com.stellar.form.BancoForm
 import br.com.stellar.model.BancoDTO
@@ -15,11 +16,11 @@ class BancoService {
     fun criarBanco(form: BancoForm): BancoDTO {
         val banco = Banco.create(form)
         banco.persist()
-        return BancoDTO(banco.nome, banco.dataFundacao)
+        return banco.toResponse()
     }
 
     fun listBancos(): List<BancoDTO> {
-        return Banco.find("ativo", true).list().map { BancoDTO(it.nome, it.dataFundacao) }
+        return Banco.find("ativo", true).list().map { (it as Banco).toResponse() }
     }
 
     @Transactional
@@ -29,9 +30,18 @@ class BancoService {
                 .entity(mapOf("mensagem" to "Banco não encontrado."))
                 .build()
         )
+
         banco.ativo = false
         banco.persist()
+        val agencias = Agencia.find("banco.id = ?1", id).list()
+        agencias.forEach { it.ativo = false }
         return true
     }
+
+    private fun Banco.toResponse() = BancoDTO(
+        id = this.id,
+        nome = this.nome,
+        dataFundacao = this.dataFundacao
+    )
 
 }

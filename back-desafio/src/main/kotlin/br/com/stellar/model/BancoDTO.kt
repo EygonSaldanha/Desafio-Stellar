@@ -5,6 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class BancoDTO(
+    val id: Long,
     val nome: String,
     val dataFundacao: LocalDateTimeJson
 )
