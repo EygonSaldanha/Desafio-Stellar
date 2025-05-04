@@ -39,7 +39,7 @@ class AuthService {
     fun login(email: String, senha: String): String {
         val existingUser = Usuario.find("email", email).firstResult()
             ?: throw WebApplicationException(
-                Response.status(Response.Status.CONFLICT)
+                Response.status(Response.Status.NOT_FOUND)
                     .entity(mapOf("mensagem" to "Usuário não encontrado."))
                     .build()
             )
