@@ -30,7 +30,6 @@ class TransacaoService {
         if (origem.saldo < form.valor) {
             throw WebApplicationException("Saldo insuficiente", 400)
         }
-
         origem.saldo = origem.saldo.minus(form.valor)
         destino.saldo = destino.saldo.plus(form.valor)
 
@@ -56,6 +55,11 @@ class TransacaoService {
         id = this.id,
         valor = this.valor,
         contaOrigemId = this.contaOrigem.id,
-        contaDestinoId = this.contaDestino.id
+        contaOrigemNumero = this.contaOrigem.numeroConta,
+        contaOrigemNomeUsuario = this.contaOrigem.usuario.nome,
+        contaDestinoId = this.contaDestino.id,
+        contaDestinoNumero = this.contaDestino.numeroConta,
+        contaDestinoNomeUsuario = this.contaDestino.usuario.nome
     )
+
 }
