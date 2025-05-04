@@ -7,7 +7,7 @@ import java.math.BigDecimal
 import java.time.LocalDateTime
 
 @Entity
-@Table(name = "transacao")
+@Table(name = "transaction")
 class Transacao(
 
     @Id
@@ -15,19 +15,19 @@ class Transacao(
     @Column(nullable = false, updatable = false)
     var id: Long,
 
-    @Column(nullable = false)
+    @Column(name = "amount",nullable = false)
     var valor: BigDecimal,
 
-    @Column(nullable = false)
+    @Column(name = "created_at",nullable = false)
     var dataHora: LocalDateTime,
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "conta_origem_id", nullable = false)
+    @JoinColumn(name = "from_account_id", nullable = false)
     var contaOrigem: Conta,
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "conta_destino_id")
-    var contaDestino: Conta?
+    @JoinColumn(name = "to_account_id")
+    var contaDestino: Conta
 
 ) : PanacheEntityBase {
 
@@ -36,7 +36,7 @@ class Transacao(
         valor = BigDecimal.ZERO,
         dataHora = LocalDateTime.now(),
         contaOrigem = Conta(),
-        contaDestino = null
+        contaDestino = Conta()
     )
 
     companion object : PanacheCompanion<Transacao>

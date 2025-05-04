@@ -8,5 +8,6 @@ CREATE TABLE account (
     overdraft_limit NUMERIC(14,2),
     is_active BOOLEAN NOT NULL DEFAULT TRUE,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    account_number VARCHAR(20) NOT NULL UNIQUE,
     CONSTRAINT unique_account_per_agency_user UNIQUE (agency_id, user_id)
 );
