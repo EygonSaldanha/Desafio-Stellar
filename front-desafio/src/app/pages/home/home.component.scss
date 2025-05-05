@@ -1,0 +1,61 @@
+// .container {
+//     padding: 20px;
+//   }
+  
+//   .button-grid {
+//     display: flex;
+//     justify-content: space-between;
+//     margin-bottom: 20px;
+//   }
+  
+//   .menu-button {
+//     flex: 1;
+//     margin: 0 10px;
+//     padding: 10px;
+//     font-size: 16px;
+//     cursor: pointer;
+//   }
+  
+//   .table-container {
+//     overflow-x: auto;
+//   }
+  
+//   table {
+//     width: 100%;
+//     border-collapse: collapse;
+//   }
+  
+//   th, td {
+//     border: 1px solid #ddd;
+//     padding: 8px;
+//     text-align: left;
+//   }
+  
+//   th {
+//     background-color: #f4f4f4;
+//   }
+
+.square-button {
+    width: 150px;
+    height: 150px;
+    background-color: #3f51b5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  .square-button:hover {
+    background-color: #303f9f;
+  }
+  .margin-top {
+    margin-top: 20px;
+    margin-left: 50px;
+  }

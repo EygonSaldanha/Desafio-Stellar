@@ -1,0 +1,17 @@
+<div class="container">
+  <!-- Grid de botões -->
+  <div class="button-grid">
+    <div fxLayout="column" fxFlex="150px" fxLayoutAlign="center center" class="margin-top">
+      <button class="square-button" (click)="onMenu1Click()">Financeiro</button>
+    </div>
+    <div *ngIf="hasRole('ADMIN')" fxLayout="column" fxFlex="150px" fxLayoutAlign="center center" class="margin-top">
+      <button class="square-button" (click)="onMenu2Click()">Banco</button>
+    </div>
+    <div *ngIf="hasRole('ADMIN')" fxLayout="column" fxFlex="150px" fxLayoutAlign="center center" class="margin-top">
+      <button class="square-button" (click)="onMenu3Click()">Agências Bancarias</button>
+    </div>
+    <div *ngIf="hasRole('ADMIN')" fxLayout="column" fxFlex="150px" fxLayoutAlign="center center" class="margin-top">
+      <button class="square-button" (click)="onMenu4Click()">Contas</button>
+    </div>
+  </div>
+</div>

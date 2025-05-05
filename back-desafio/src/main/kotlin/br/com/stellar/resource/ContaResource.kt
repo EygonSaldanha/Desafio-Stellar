@@ -1,5 +1,6 @@
 package br.com.stellar.resource
 
+import br.com.stellar.entities.Conta
 import br.com.stellar.form.ContaForm
 import br.com.stellar.model.ContaDTO
 import br.com.stellar.service.ContaService

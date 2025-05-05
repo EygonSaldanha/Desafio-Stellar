@@ -1,0 +1,48 @@
+<div class="login-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ isRegisterMode ? 'Registro' : 'Login' }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+          
+          <!-- Campo de Nome (somente no registro) -->
+          <mat-form-field *ngIf="isRegisterMode" class="full-width">
+            <mat-label>Nome</mat-label>
+            <input matInput name="nome" [(ngModel)]="nome" required />
+          </mat-form-field>
+  
+          <!-- Campo de Endereço (somente no registro) -->
+          <mat-form-field *ngIf="isRegisterMode" class="full-width">
+            <mat-label>Endereço</mat-label>
+            <input matInput name="endereco" [(ngModel)]="endereco" required />
+          </mat-form-field>
+  
+          <!-- Campo de E-mail -->
+          <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" name="email" [(ngModel)]="email" required />
+          </mat-form-field>
+  
+          <!-- Campo de Senha -->
+          <mat-form-field class="full-width">
+            <mat-label>Senha</mat-label>
+            <input matInput type="password" name="password" [(ngModel)]="password" required />
+          </mat-form-field>
+  
+          <!-- Botão de Enviar -->
+          <button mat-flat-button color="primary" type="submit">
+            {{ isRegisterMode ? 'Registrar' : 'Entrar' }}
+          </button>
+        </form>
+  
+        <!-- Botão para alternar entre login e registro -->
+        <div style="margin-top: 10px;">
+          <button mat-button color="accent" (click)="toggleMode()">
+            {{ isRegisterMode ? 'Já tem conta? Entrar' : 'Não tem conta? Registrar' }}
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

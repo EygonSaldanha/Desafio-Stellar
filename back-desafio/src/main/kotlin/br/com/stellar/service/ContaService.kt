@@ -84,6 +84,7 @@ class ContaService {
         usuarioNome = this.usuario.nome,
         agenciaNome = this.agencia.nome
     )
+    
     fun gerarNumeroConta(): String {
         return (100000..999999).random().toString()
     }

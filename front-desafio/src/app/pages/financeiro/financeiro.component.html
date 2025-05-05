@@ -1,0 +1,54 @@
+<div fxLayout="row" fxLayoutAlign="center" marginTop="20px">
+    <div fxLayout="column" fxFlex="150px" fxLayoutAlign="center center" class="margin-top">
+        <button class="square-button" (click)="onSquareButtonClick()">Realizar Pagamento</button>
+    </div>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="center" class="mt-20">
+    <div fxLayout="column" fxFlex="1000px">
+        <mat-card appearance="outlined">
+            <mat-card-header>
+                <mat-card-title>Resultado</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+
+                <table mat-table [dataSource]="listaTransacoes">
+
+                    <ng-container matColumnDef="id">
+                      <th mat-header-cell *matHeaderCellDef> ID </th>
+                      <td mat-cell *matCellDef="let item"> {{ item.id }} </td>
+                    </ng-container>
+                  
+                    <ng-container matColumnDef="valor">
+                      <th mat-header-cell *matHeaderCellDef> Valor </th>
+                      <td mat-cell *matCellDef="let item"> {{ item.valor }} </td>
+                    </ng-container>
+                  
+                    <ng-container matColumnDef="contaOrigemNumero">
+                      <th mat-header-cell *matHeaderCellDef> Conta Origem Nº </th>
+                      <td mat-cell *matCellDef="let item"> {{ item.contaOrigemNumero }} </td>
+                    </ng-container>
+                  
+                    <ng-container matColumnDef="contaOrigemNomeUsuario">
+                      <th mat-header-cell *matHeaderCellDef> Origem Usuário </th>
+                      <td mat-cell *matCellDef="let item"> {{ item.contaOrigemNomeUsuario }} </td>
+                    </ng-container>
+                  
+                    <ng-container matColumnDef="contaDestinoNumero">
+                      <th mat-header-cell *matHeaderCellDef> Conta Destino Nº </th>
+                      <td mat-cell *matCellDef="let item"> {{ item.contaDestinoNumero }} </td>
+                    </ng-container>
+                  
+                    <ng-container matColumnDef="contaDestinoNomeUsuario">
+                      <th mat-header-cell *matHeaderCellDef> Destino Usuário </th>
+                      <td mat-cell *matCellDef="let item"> {{ item.contaDestinoNomeUsuario }} </td>
+                    </ng-container>
+                  
+                    <tr mat-header-row *matHeaderRowDef="colunasTable"></tr>
+                    <tr mat-row *matRowDef="let row; columns: colunasTable;"></tr>
+                  </table>
+                  
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
